@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/Imajes">
+        <file>041-save.png</file>
+        <file>041-save-1.png</file>
+        <file>041-copy.png</file>
+        <file>041-cut.png</file>
+        <file>041-text-height.png</file>
+        <file>041-import.png</file>
+        <file>041-export.png</file>
+        <file>041-font.png</file>
+        <file>041-strikethrough.png</file>
+        <file>041-redo.png</file>
+        <file>041-undo.png</file>
+    </qresource>
+</RCC>

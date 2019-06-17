@@ -25,7 +25,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        ../VegaTextEditor/filemanager.cpp \
         Filemanger.cpp \
         Visualsetter.cpp \
         compiler.cpp \
@@ -33,7 +32,6 @@ SOURCES += \
         qtpad.cpp
 
 HEADERS += \
-        ../VegaTextEditor/filemanager.h \
         Filemanger.h \
         Visualsetter.h \
         compiler.h \
@@ -48,4 +46,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    ../391301-text-editor/png/appresources.qrc
+    Imajes/appresources.qrc
