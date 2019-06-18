@@ -12,18 +12,19 @@ QtPad::QtPad(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setCentralWidget(ui->textEdit);
-    file_manager = new FileManager();
+    fileManager = new FileManager();
     setter = new VisualSetter(ui->textEdit);
-    compiler = new Compiler;
+    //compiler = new Compiler;
     connect(ui->openFile, &QAction::triggered,this, &QtPad::openFileSlot);
     connect(ui->saveFile, &QAction::triggered,this,&QtPad::saveFileSlot);
+    connect(ui->saveFileAs, &QAction::triggered,this,&QtPad::saveFileAsSlot);
     connect(ui->newFile, &QAction::triggered,this,&QtPad::createFileSlot);
     connect(ui->setTextSize,&QAction::triggered,this,&QtPad::changeFontSizeSlot);
     connect(ui->setTextFont,&QAction::triggered,this,&QtPad::changeFontStyleSlot);
     connect(ui->setTextColor,&QAction::triggered,this,&QtPad::changeFontColorSlot);
     connect(ui->setBackgroundColor,&QAction::triggered,this,&QtPad::changeBgColorSlot);
     connect(ui->setTextBackgroundColor,&QAction::triggered,this,&QtPad::changeTextBgSlot);
-    connect(ui->compile,&QAction::triggered,this,&QtPad::compileSlot);
+ //   connect(ui->compile,&QAction::triggered,this,&QtPad::compileSlot);
     connect(ui->copy,&QAction::triggered,this,&QtPad::copySlot);
     connect(ui->paste,&QAction::triggered,this,&QtPad::pasteSlot);
     connect(ui->cut,&QAction::triggered,this,&QtPad::cutSlot);
@@ -34,7 +35,7 @@ QtPad::QtPad(QWidget *parent) :
 QtPad::~QtPad()
 {
     delete ui;
-    delete file_manager;
+    delete fileManager;
     delete setter;
 }
 
@@ -42,32 +43,43 @@ QtPad::~QtPad()
 void QtPad::createFileSlot()
 {
     QString path = QFileDialog::getSaveFileName(this,tr ("create file"),"/home",tr(""));
-    file_manager->_filepath = path;
-    file_manager->createFile(path);
+    fileManager->_filepath = path;
+    fileManager->createFile(path);
 }
 
 void QtPad::saveFileSlot()
 {
-    QString path = QFileDialog::getSaveFileName(this,tr("save file"),"/home",tr(""));
-    if(path!="")
+
+    if(fileManager->_filepath!="")
     {
         QString text = ui->textEdit->toPlainText();
-        file_manager->saveFile(path,text);
+        fileManager->saveFile(fileManager->_filepath,text);
     }
+}
+void QtPad::saveFileAsSlot()
+{
+    fileManager->_filepath= QFileDialog::getSaveFileName(this,tr("save file"),"/home",tr(""));
+    if(fileManager->_filepath!="")
+    {
+        QString text = ui->textEdit->toPlainText();
+        fileManager->saveFile(fileManager->_filepath,text);
+    }
+
+
 }
 void QtPad::openFileSlot()
 {
-    QStringList file_codec_list;
-    file_codec_list<<tr("UTF-8")<<tr("UTF-16")<<tr("UTF-32")<<("Win_1251")<<("KOI-8R");
+    QStringList fileCodecList;
+    fileCodecList<<tr("UTF-8")<<tr("UTF-16")<<tr("UTF-32")<<("Win_1251")<<("KOI-8R");
     bool check;
-    QString file_codec = QInputDialog::getItem(this,tr("choose codec: "),tr("codec"),file_codec_list,0,false,&check);
+    QString file_codec = QInputDialog::getItem(this,tr("choose codec: "),tr("codec"),fileCodecList,0,false,&check);
     if(check)
     {
         QTextCodec* text_codec = QTextCodec::codecForName(file_codec.toStdString().c_str());
         QString path = QFileDialog::getOpenFileName(this,tr("open file"),"/home",tr(""));
         if(path!="")
         {
-            QString text = file_manager->openFile(path,text_codec);
+            QString text = fileManager->openFile(path,text_codec);
             ui->textEdit->setPlainText(text);
         }
     }
@@ -102,10 +114,10 @@ void QtPad::changeTextBgSlot()
     setter->setTextBgColor(QColorDialog::getColor(setter->textBgColor,this));
 }
 
-void QtPad::compileSlot()
+/*void QtPad::compileSlot()
 {
-    compiler->compile(file_manager->_filepath);
-}
+    compiler->compile(fileManager->_filepath);
+}*/
 
 void QtPad::copySlot()
 {

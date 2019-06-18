@@ -22,24 +22,26 @@ public:
 private slots:
     void createFileSlot();
     void saveFileSlot();
+    void saveFileAsSlot();
     void openFileSlot();
     void changeFontStyleSlot();
     void changeFontColorSlot();
     void changeFontSizeSlot();
     void changeBgColorSlot();
     void changeTextBgSlot();
-    void compileSlot();
+    //void compileSlot();
     void copySlot();
     void pasteSlot();
     void cutSlot();
     void undoSlot();
     void redoSlot();
 
+
 private:
     Ui::QtPad *ui;
-    FileManager* file_manager;
+    FileManager* fileManager;
     VisualSetter* setter;
-     Compiler* compiler;
+ //    Compiler* compiler;
 };//
 
 #endif // QTPAD_H

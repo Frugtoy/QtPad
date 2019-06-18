@@ -1,4 +1,4 @@
-#ifndef COMPILER
+/*#ifndef COMPILER
 #define COMPILER
 #include<QString>
 #include<QDebug>
@@ -15,3 +15,4 @@ class Compiler
 
 
 #endif
+*/

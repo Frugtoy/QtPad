@@ -1,4 +1,4 @@
-#include "compiler.h"
+/*#include "compiler.h"
 #include <string>
 
 Compiler::Compiler(){}
@@ -10,3 +10,4 @@ void Compiler::compile(QString filename)
 }
 
 Compiler::~Compiler(){}
+*/

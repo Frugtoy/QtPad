@@ -66,15 +66,8 @@
     <addaction name="setTextFont"/>
     <addaction name="setTextBackgroundColor"/>
    </widget>
-   <widget class="QMenu" name="Compile">
-    <property name="title">
-     <string>Compiler</string>
-    </property>
-    <addaction name="compile"/>
-   </widget>
    <addaction name="menufile"/>
    <addaction name="menuedit"/>
-   <addaction name="Compile"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -91,7 +84,7 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="newFile">
    <property name="icon">
-    <iconset resource="../391301-text-editor/png/appresources.qrc">
+    <iconset resource="Imajes/appresources.qrc">
      <normaloff>:/Imajes/041-copy.png</normaloff>:/Imajes/041-copy.png</iconset>
    </property>
    <property name="text">
@@ -103,7 +96,7 @@
   </action>
   <action name="openFile">
    <property name="icon">
-    <iconset resource="../391301-text-editor/png/appresources.qrc">
+    <iconset resource="Imajes/appresources.qrc">
      <normaloff>:/Imajes/041-export.png</normaloff>:/Imajes/041-export.png</iconset>
    </property>
    <property name="text">
@@ -115,7 +108,7 @@
   </action>
   <action name="saveFile">
    <property name="icon">
-    <iconset resource="../391301-text-editor/png/appresources.qrc">
+    <iconset resource="Imajes/appresources.qrc">
      <normaloff>:/Imajes/041-save.png</normaloff>:/Imajes/041-save.png</iconset>
    </property>
    <property name="text">
@@ -127,7 +120,7 @@
   </action>
   <action name="saveFileAs">
    <property name="icon">
-    <iconset resource="../391301-text-editor/png/appresources.qrc">
+    <iconset resource="Imajes/appresources.qrc">
      <normaloff>:/Imajes/041-save-1.png</normaloff>:/Imajes/041-save-1.png</iconset>
    </property>
    <property name="text">
@@ -155,7 +148,7 @@
   </action>
   <action name="cut">
    <property name="icon">
-    <iconset resource="../391301-text-editor/png/appresources.qrc">
+    <iconset resource="Imajes/appresources.qrc">
      <normaloff>:/Imajes/041-cut.png</normaloff>:/Imajes/041-cut.png</iconset>
    </property>
    <property name="text">
@@ -170,7 +163,7 @@
   </action>
   <action name="undo">
    <property name="icon">
-    <iconset resource="../391301-text-editor/png/appresources.qrc">
+    <iconset resource="Imajes/appresources.qrc">
      <normaloff>:/Imajes/041-undo.png</normaloff>:/Imajes/041-undo.png</iconset>
    </property>
    <property name="text">
@@ -185,7 +178,7 @@
   </action>
   <action name="redo">
    <property name="icon">
-    <iconset resource="../391301-text-editor/png/appresources.qrc">
+    <iconset resource="Imajes/appresources.qrc">
      <normaloff>:/Imajes/041-redo.png</normaloff>:/Imajes/041-redo.png</iconset>
    </property>
    <property name="text">
@@ -223,18 +216,10 @@
     <string>Set Text Background Color</string>
    </property>
   </action>
-  <action name="compile">
-   <property name="text">
-    <string>Compile</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+R</string>
-   </property>
-  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="../391301-text-editor/png/appresources.qrc"/>
+  <include location="Imajes/appresources.qrc"/>
  </resources>
  <connections/>
 </ui>
