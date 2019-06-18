@@ -55,6 +55,10 @@ void QtPad::saveFileSlot()
         QString text = ui->textEdit->toPlainText();
         fileManager->saveFile(fileManager->_filepath,text);
     }
+    else
+    {
+        saveFileAsSlot();
+    }
 }
 void QtPad::saveFileAsSlot()
 {
